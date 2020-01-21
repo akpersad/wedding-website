@@ -120,10 +120,10 @@ class Header extends Component {
 							{this.setCurrentLink(linkLists)}
 
 							<li>
-								<a href="index.html">HOME</a>
+								<a href="/index.html">HOME</a>
 							</li>
 							<li className="drop-down">
-								<a href="#!">
+								<a href="/#!">
 									OUR STORIES
 									<FaCaretDown />
 								</a>
@@ -156,13 +156,13 @@ class Header extends Component {
 							</li>
 
 							<li>
-								<a href="03-regular-page.html">THER WEDDING</a>
+								<a href="/03-regular-page">THER WEDDING</a>
 							</li>
 							<li>
 								<a href="/GELLERY">GELLERY</a>
 							</li>
 							<li>
-								<a href="02-rsvp.html">RSVP</a>
+								<a href="/02-rsvp">RSVP</a>
 							</li>
 						</ul>
 					</div>
