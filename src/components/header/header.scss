@@ -1,10 +1,12 @@
+@import "../../styles/main.scss";
+
 .header-object {
     // position: absolute;
     left: 0;
     right: 0;
     top: 20px;
     z-index: 1000;
-    font-size: 0.95em;
+    font-size: $font-size-16;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     color: #fff;
 

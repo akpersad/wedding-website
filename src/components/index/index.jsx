@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Header from "../header/header";
 
 // Functional Component
@@ -20,4 +20,4 @@ MainPage.propTypes = {
 	location: PropTypes.object.isRequired
 };
 
-export default MainPage;
+export default withRouter(MainPage);

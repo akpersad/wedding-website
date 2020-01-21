@@ -173,7 +173,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-	pathName: PropTypes.string.isRequired
+	pathName: PropTypes.object.isRequired
 };
 
 export default Header;

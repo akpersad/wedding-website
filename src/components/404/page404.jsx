@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import Header from "../header/header";
 
@@ -18,4 +19,4 @@ Page404.propTypes = {
 	location: PropTypes.object.isRequired
 };
 
-export default Page404;
+export default withRouter(Page404);
