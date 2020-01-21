@@ -15,7 +15,7 @@ class Page404 extends Component {
 }
 
 Page404.propTypes = {
-	location: PropTypes.string.isRequired
+	location: PropTypes.object.isRequired
 };
 
 export default Page404;

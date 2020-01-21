@@ -17,6 +17,7 @@
 		"no-unused-vars": 1,
 		"no-undef": 1,
 		"func-names": 0,
+		"react/forbid-prop-types": 0,
 		"indent": [
 			0,
 			"tab",
