@@ -1,4 +1,20 @@
 @import "~bootstrap/scss/bootstrap";
-@import "partials/variables";
-@import "partials/mixins";
-@import "partials/base";
+
+// Globals
+@import "./partials/reset";
+@import "./partials/mixins";
+@import "./partials/colors";
+@import "./partials/breakpoints";
+@import "./partials/spacing";
+@import "./partials/grid-layout";
+@import "./partials/alignment";
+@import "./partials/shared-styles";
+@import "./partials/typography";
+@import "./partials/icons";
+@import "./partials/common-variables";
+@import "./partials/buttons";
+@import "./partials/forms";
+@import "./partials/z-index";
+@import "./partials/visibility";
+@import "./partials/accessibility";
+@import "./partials/imported";
