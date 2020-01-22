@@ -20,7 +20,7 @@ class MainPage extends Component {
 			<>
 				<Header pathName={location} />
 
-				<main>
+				<main className="footer-padding">
 					<FirstFold bkgdImage={url1} />
 
 					<FirstFold bkgdImage={url2} />
