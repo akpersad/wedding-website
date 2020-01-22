@@ -8,6 +8,8 @@ import { FaBars, FaCaretDown, FaCaretRight } from "react-icons/fa";
 
 class Header extends Component {
 	componentDidMount() {
+		window.addEventListener("scroll", this.scrollFunc);
+
 		function isExists(elem) {
 			if (j$(elem).length > 0) {
 				return true;
@@ -103,6 +105,19 @@ class Header extends Component {
 			);
 		}
 		return htmlArray;
+	}
+
+	scrollFunc(event) {
+		const scrollPos = event.target.documentElement.scrollTop;
+		if (scrollPos > 0) {
+			document.querySelector(".header-object").classList.remove("py-3");
+			document.querySelector(".header-object").classList.add("py-0");
+			document.querySelector(".main-menu").classList.add("header-moved");
+		} else {
+			document.querySelector(".header-object").classList.remove("py-0");
+			document.querySelector(".main-menu").classList.remove("header-moved");
+			document.querySelector(".header-object").classList.add("py-3");
+		}
 	}
 
 	render() {
