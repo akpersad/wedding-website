@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import "./index.scss";
 
 import Header from "../header/header";
+import Footer from "../footer/footer";
 import FirstFold from "../first-fold/first-fold";
 
 // Functional Component
@@ -26,6 +27,8 @@ class MainPage extends Component {
 
 					<FirstFold bkgdImage={url3} />
 				</main>
+
+				<Footer />
 			</>
 		);
 	}
