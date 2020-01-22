@@ -17,3 +17,8 @@
 @import "./partials/visibility";
 @import "./partials/accessibility";
 @import "./partials/imported";
+
+#root {
+    position: relative;
+    min-height: 100vh;
+}
