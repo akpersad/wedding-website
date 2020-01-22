@@ -4,10 +4,13 @@ import PropTypes from "prop-types";
 import "./header.scss";
 
 import j$ from "jquery";
-import { FaBars, FaCaretDown, FaCaretRight } from "react-icons/fa";
+import { FaBars, FaOutdent, FaCaretDown, FaCaretRight } from "react-icons/fa";
+import Logo from "../../images/website_logo.png";
 
 class Header extends Component {
 	componentDidMount() {
+		window.addEventListener("scroll", this.scrollFunc);
+
 		function isExists(elem) {
 			if (j$(elem).length > 0) {
 				return true;
@@ -75,6 +78,16 @@ class Header extends Component {
 			$("[data-nav-menu]").on("click", function() {
 				const $this = $(this);
 				const visibleHeadArea = $this.data("nav-menu");
+				const opened = $(".menu-opened");
+				const closed = $(".menu-closed");
+
+				if (closed.hasClass("d-none")) {
+					opened.addClass("d-none");
+					closed.removeClass("d-none");
+				} else {
+					closed.addClass("d-none");
+					opened.removeClass("d-none");
+				}
 
 				$(visibleHeadArea).toggleClass("visible");
 			});
@@ -105,25 +118,59 @@ class Header extends Component {
 		return htmlArray;
 	}
 
+	scrollFunc(event) {
+		const scrollPos = event.target.documentElement.scrollTop;
+		if (scrollPos > 0) {
+			document
+				.querySelector(".header-object > .container")
+				.classList.remove("set-height_large");
+			document
+				.querySelector(".header-object > .container")
+				.classList.add("set-height_medium");
+			document.querySelector(".main-menu").classList.add("header-moved");
+			document.querySelector(".logo-dimensions").classList.add("header-moved");
+		} else {
+			document
+				.querySelector(".header-object > .container")
+				.classList.remove("set-height_medium");
+			document.querySelector(".main-menu").classList.remove("header-moved");
+			document.querySelector(".logo-dimensions").classList.remove("header-moved");
+			document.querySelector(".header-object > .container").classList.add("set-height_large");
+		}
+	}
+
 	render() {
 		const linkLists = { "/": "Home", "/users": "Users" };
 
 		return (
 			<>
-				<header className="header-object d-md-flex py-3">
-					<div className="container">
+				<header className="header-object d-md-flex">
+					<div className="container d-flex justify-content-between align-items-center set-height_large">
+						<Link to="/">
+							<img className="logo-dimensions" src={Logo} alt="Logo" />
+						</Link>
+
 						<div className="menu-nav-icon" data-nav-menu="#main-menu">
-							<FaBars />
+							<div className="menu-opened d-none">
+								<FaOutdent />
+							</div>
+
+							<div className="menu-closed">
+								<FaBars />
+							</div>
 						</div>
 
-						<ul className="main-menu visible-on-click float-md-right" id="main-menu">
+						<ul
+							className="main-menu visible-on-click float-md-right mobile-ul-display"
+							id="main-menu"
+						>
 							{this.setCurrentLink(linkLists)}
 
 							<li>
-								<a href="index.html">HOME</a>
+								<a href="/index.html">HOME</a>
 							</li>
 							<li className="drop-down">
-								<a href="#!">
+								<a href="/#!">
 									OUR STORIES
 									<FaCaretDown />
 								</a>
@@ -156,13 +203,13 @@ class Header extends Component {
 							</li>
 
 							<li>
-								<a href="03-regular-page.html">THER WEDDING</a>
+								<a href="/03-regular-page">THER WEDDING</a>
 							</li>
 							<li>
 								<a href="/GELLERY">GELLERY</a>
 							</li>
 							<li>
-								<a href="02-rsvp.html">RSVP</a>
+								<a href="/02-rsvp">RSVP</a>
 							</li>
 						</ul>
 					</div>
@@ -173,7 +220,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-	pathName: PropTypes.string.isRequired
+	pathName: PropTypes.object.isRequired
 };
 
 export default Header;

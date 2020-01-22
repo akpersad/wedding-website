@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import Header from "../header/header";
+
+import "./users.scss";
 
 class UsersPage extends Component {
 	render() {
@@ -8,7 +11,7 @@ class UsersPage extends Component {
 		return (
 			<>
 				<Header pathName={location} />
-				<ul>
+				<ul className="user-list padding-top--xxxl">
 					{["Alex", "John", "Jaz", "fedrik", "missali"].map(user => {
 						return <li key={`${user}-user`}>{user}</li>;
 					})}
@@ -22,4 +25,4 @@ UsersPage.propTypes = {
 	location: PropTypes.object.isRequired
 };
 
-export default UsersPage;
+export default withRouter(UsersPage);

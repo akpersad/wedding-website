@@ -10,8 +10,9 @@ module.exports = {
 	entry: [SRC_DIR + "/index.jsx"],
 	output: {
 		path: DIST_DIR,
-		publicPath: "/",
-		filename: "bundle.js"
+		filename: "bundle.js",
+		publicPath: "/"
+		// historyApiFallback: true
 	},
 	module: {
 		rules: [
@@ -42,6 +43,10 @@ module.exports = {
 					loader: "html-loader",
 					options: { minimize: true }
 				}
+			},
+			{
+				test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+				loader: "url-loader?limit=100000"
 			}
 		]
 	},
