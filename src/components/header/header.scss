@@ -14,6 +14,29 @@
         color: black;
     }
 
+    .header-moved {
+        @include breakpoint(md) {
+            transform: scale(0.8);
+        }
+    }
+
+    .set-height_large {
+        @include breakpoint(md) {
+            height: 100px;
+        }
+    }
+
+    .set-height_medium {
+        @include breakpoint(md) {
+            height: 75px;
+        }
+    }
+
+    .logo-dimensions {
+        height: 100px;
+        transition: 0.5s;
+    }
+
     /* MIDDLE AREA */
     .logo {
         margin: 5px 0 20px;
@@ -25,14 +48,28 @@
         }
     }
 
+    & > .container {
+        transition: 0.5s;
+    }
+
     /* BOTTOM AREA */
     .main-menu {
         font-weight: 500;
         margin: 0px -15px;
         transition: 0.5s;
 
-        &.header-moved {
-            transform: scale(0.8);
+        .header-moved {
+            @include breakpoint(md) {
+                transform: scale(0.8);
+            }
+        }
+
+        &.mobile-ul-display {
+            @include breakpoint(sm-only) {
+                position: absolute;
+                top: 10px;
+                width: 70%;
+            }
         }
 
         > li > a {

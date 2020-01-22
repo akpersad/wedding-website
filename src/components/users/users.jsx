@@ -11,7 +11,7 @@ class UsersPage extends Component {
 		return (
 			<>
 				<Header pathName={location} />
-				<ul className="user-list">
+				<ul className="user-list padding-top--xxxl">
 					{["Alex", "John", "Jaz", "fedrik", "missali"].map(user => {
 						return <li key={`${user}-user`}>{user}</li>;
 					})}

@@ -9,7 +9,7 @@ class Page404 extends Component {
 		return (
 			<div>
 				<Header pathName={location} />
-				<p>Page Not Found</p>
+				<p className="padding-top--xxl">Page Not Found</p>
 			</div>
 		);
 	}

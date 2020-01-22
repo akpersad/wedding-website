@@ -12,7 +12,7 @@ class FirstFold extends Component {
 		return (
 			<>
 				<section className="cd-section cd-section--bg-fixed" style={style}>
-					<div className="container max-width-sm image-slide_padding">
+					<div className="container max-width-sm padding-top--xxxl">
 						<div className="text-component text-center">
 							<h1>Alternate Fixed &amp; Scroll Backgrounds</h1>
 							<p>The effect is visible only past 1024px.</p>
