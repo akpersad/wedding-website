@@ -11,29 +11,6 @@ class Header extends Component {
 	componentDidMount() {
 		window.addEventListener("scroll", this.scrollFunc);
 
-		function isExists(elem) {
-			if (j$(elem).length > 0) {
-				return true;
-			}
-			return false;
-		}
-
-		function countdownTime() {
-			if (isExists("#clock")) {
-				j$("#clock").countdown("2018/01/01", function(event) {
-					j$(this).html(
-						event.strftime(
-							"" +
-								'<div class="time-sec"><span class="title">%D</span> days </div>' +
-								'<div class="time-sec"><span class="title">%H</span> hours </div>' +
-								'<div class="time-sec"><span class="title">%M</span> minutes </div>' +
-								'<div class="time-sec"><span class="title">%S</span> seconds </div>'
-						)
-					);
-				});
-			}
-		}
-
 		function dropdownMenu(winWidth) {
 			if (winWidth > 767) {
 				j$(".main-menu li.drop-down")
@@ -70,10 +47,6 @@ class Header extends Component {
 			if ($.isFunction($.fn.fluidbox)) {
 				$("a").fluidbox();
 			}
-
-			// COUNTDOWN TIME
-
-			countdownTime();
 
 			$("[data-nav-menu]").on("click", function() {
 				const $this = $(this);
