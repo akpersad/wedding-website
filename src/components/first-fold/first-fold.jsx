@@ -26,7 +26,7 @@ class FirstFold extends Component {
 				</section>
 
 				<section className="cd-section">
-					<div className="container max-width-sm">
+					<div>
 						<div className="text-component">
 							<div>{cmp}</div>
 							<p>
