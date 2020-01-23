@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./first-fold.scss";
+
+import "../../styles/main.scss";
 
 class FirstFold extends Component {
 	render() {

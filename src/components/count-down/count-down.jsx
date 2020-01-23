@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "./count-down.scss";
+import "../../styles/main.scss";
 
 class CountDown extends Component {
 	constructor(props) {

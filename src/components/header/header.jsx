@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import "./header.scss";
+
+import "../../styles/main.scss";
 
 import j$ from "jquery";
 import { FaBars, FaOutdent, FaCaretDown, FaCaretRight } from "react-icons/fa";

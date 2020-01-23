@@ -5,7 +5,7 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import CountDown from "../count-down/count-down";
 
-import "./users.scss";
+import "../../styles/main.scss";
 
 class UsersPage extends Component {
 	render() {
