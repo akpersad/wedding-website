@@ -6,6 +6,7 @@ import "./index.scss";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import FirstFold from "../first-fold/first-fold";
+import CountDown from "../count-down/count-down";
 
 // Functional Component
 
@@ -21,7 +22,7 @@ class MainPage extends Component {
 				<Header pathName={location} />
 
 				<main className="footer-padding">
-					<FirstFold bkgdImage={url1} />
+					<FirstFold bkgdImage={url1} cmp={<CountDown />} />
 
 					<FirstFold bkgdImage={url2} />
 
