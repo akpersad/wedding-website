@@ -99,7 +99,7 @@ class CountDown extends Component {
 						<div className="row justify-content-around">
 							<div className="col-sm-12">
 								<div className="heading">
-									<h2 className="title">Do not miss it!</h2>
+									<h2 className="title">Don&apos;t miss it!</h2>
 								</div>
 							</div>
 
