@@ -18,6 +18,14 @@
 @import "./partials/accessibility";
 @import "./partials/imported";
 
+@import "../components/404/page404";
+@import "../components/count-down/count-down";
+@import "../components/first-fold/first-fold";
+@import "../components/footer/footer";
+@import "../components/header/header";
+@import "../components/index/index";
+@import "../components/users/users";
+
 #root {
     position: relative;
     min-height: 100vh;
