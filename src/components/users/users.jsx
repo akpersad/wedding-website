@@ -3,8 +3,9 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import Header from "../header/header";
 import Footer from "../footer/footer";
+import CountDown from "../count-down/count-down";
 
-import "./users.scss";
+import "../../styles/main.scss";
 
 class UsersPage extends Component {
 	render() {
@@ -12,11 +13,16 @@ class UsersPage extends Component {
 		return (
 			<>
 				<Header pathName={location} />
-				<ul className="user-list padding-top--xxxl footer-padding">
-					{["Alex", "John", "Jaz", "fedrik", "missali"].map(user => {
-						return <li key={`${user}-user`}>{user}</li>;
-					})}
-				</ul>
+				<div className="footer-padding">
+					<ul className="user-list padding-top--xxxl">
+						{["Alex", "John", "Jaz", "fedrik", "missali"].map(user => {
+							return <li key={`${user}-user`}>{user}</li>;
+						})}
+					</ul>
+
+					<CountDown />
+				</div>
+
 				<Footer />
 			</>
 		);

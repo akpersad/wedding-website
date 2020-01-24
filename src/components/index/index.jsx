@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
-import "./index.scss";
+
+import "../../styles/main.scss";
 
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import FirstFold from "../first-fold/first-fold";
+import CountDown from "../count-down/count-down";
 
 // Functional Component
 
@@ -21,7 +23,7 @@ class MainPage extends Component {
 				<Header pathName={location} />
 
 				<main className="footer-padding">
-					<FirstFold bkgdImage={url1} />
+					<FirstFold bkgdImage={url1} cmp={<CountDown />} />
 
 					<FirstFold bkgdImage={url2} />
 

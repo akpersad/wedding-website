@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./first-fold.scss";
+
+import "../../styles/main.scss";
 
 class FirstFold extends Component {
 	render() {
-		const { bkgdImage } = this.props;
+		const { bkgdImage, cmp } = this.props;
 		const style = {
 			backgroundImage: `url(${bkgdImage})`
 		};
@@ -26,8 +27,9 @@ class FirstFold extends Component {
 				</section>
 
 				<section className="cd-section">
-					<div className="container max-width-sm">
+					<div>
 						<div className="text-component">
+							<div>{cmp}</div>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
 								incidunt suscipit similique, dolor corrupti cumque qui consectetur
@@ -51,8 +53,13 @@ class FirstFold extends Component {
 	}
 }
 
+FirstFold.defaultProps = {
+	cmp: []
+};
+
 FirstFold.propTypes = {
-	bkgdImage: PropTypes.string.isRequired
+	bkgdImage: PropTypes.string.isRequired,
+	cmp: PropTypes.object
 };
 
 export default FirstFold;
