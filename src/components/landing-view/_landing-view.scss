@@ -1,0 +1,23 @@
+.landing-view-object {
+    color: $white;
+    .main-div {
+        &_one,
+        &_four {
+            font-size: $font-size-60;
+        }
+        &_two {
+            font-family: $OpenSans;
+            font-size: $font-size-30;
+        }
+        &_three {
+            font-family: $DancingScript;
+            font-size: $font-size-45;
+        }
+        &_four {
+            font-family: $GreatVibes;
+        }
+        &_icon {
+            color: #e45f74;
+        }
+    }
+}
