@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { GiDiamondRing } from "react-icons/gi";
 
 import "../../styles/main.scss";
 
@@ -23,8 +24,12 @@ class CountDown extends Component {
 		this.initiateCountdown();
 	}
 
+	componentWillUnmount() {
+		clearInterval(this.timer);
+	}
+
 	initiateCountdown() {
-		setInterval(
+		this.timer = setInterval(
 			function() {
 				const { weddingDate } = this.state;
 				const currentDate = new Date();
@@ -81,7 +86,7 @@ class CountDown extends Component {
 		const timeWords = ["years", "months", "days", "hours", "minutes", "seconds"];
 		const returnArr = stateArr.map((value, index) => {
 			return (
-				<div className="time-sec">
+				<div key={timeWords[index]} className="time-sec">
 					<span className="title">{value}</span>
 					<span className="time-word">{timeWords[index]}</span>
 				</div>
@@ -99,7 +104,10 @@ class CountDown extends Component {
 						<div className="row justify-content-around">
 							<div className="col-sm-12">
 								<div className="heading">
-									<h2 className="title">Don&apos;t miss it!</h2>
+									<h2 className="title">Countdown to Party Time!</h2>
+									<h2 className="divider line double-razor">
+										<GiDiamondRing />
+									</h2>
 								</div>
 							</div>
 

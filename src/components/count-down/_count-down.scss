@@ -20,6 +20,36 @@
         }
     }
     .heading {
+        .divider {
+            display: flex;
+            color: $white;
+            &:before,
+            &:after {
+                content: "";
+                flex: 1;
+            }
+        }
+
+        .line {
+            align-items: center;
+            margin: 1em -1em;
+
+            &:before,
+            &:after {
+                height: 1px;
+                margin: 0 1em;
+            }
+        }
+
+        .double-razor {
+            &:before,
+            &:after {
+                height: 3px;
+                box-shadow: 0 -0.5px 0 $white, 0 0.5px 0 $white;
+                border-width: 0;
+            }
+        }
+
         .title {
             font-family: $DancingScript;
             font-size: $font-size-45;
