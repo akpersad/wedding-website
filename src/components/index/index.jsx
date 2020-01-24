@@ -8,6 +8,7 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import FirstFold from "../first-fold/first-fold";
 import CountDown from "../count-down/count-down";
+import LandingView from "../landing-view/landing-view";
 
 // Functional Component
 
@@ -23,7 +24,11 @@ class MainPage extends Component {
 				<Header pathName={location} />
 
 				<main className="footer-padding">
-					<FirstFold bkgdImage={url1} cmp={<CountDown />} />
+					<FirstFold
+						bkgdImage={url1}
+						topCmp={<LandingView />}
+						bottomCmp={<CountDown />}
+					/>
 
 					<FirstFold bkgdImage={url2} />
 
