@@ -7,7 +7,7 @@ class FirstFold extends Component {
 	render() {
 		const { bkgdImage, topCmp, bottomCmp } = this.props;
 		const style = {
-			backgroundImage: `url(${bkgdImage})`
+			backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(${bkgdImage})`
 		};
 
 		return (

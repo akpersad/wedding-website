@@ -1,5 +1,6 @@
 .landing-view-object {
     color: $white;
+    margin: 0;
     .main-div {
         &_one,
         &_four {
@@ -15,9 +16,23 @@
         }
         &_four {
             font-family: $GreatVibes;
+
+            & > span {
+                margin-right: $font-size-15;
+
+                @include breakpoint(sm-only) {
+                    margin-right: 0;
+                }
+            }
         }
         &_icon {
             color: #e45f74;
+
+            @include breakpoint(sm-only) {
+                display: block;
+                margin-top: -20px;
+                margin-bottom: -20px;
+            }
         }
     }
 }
