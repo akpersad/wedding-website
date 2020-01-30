@@ -172,3 +172,8 @@ export const moveFocus = element => {
 		element.focus();
 	}
 };
+
+export const randomIdGen = () => {
+	return Math.floor(Math.random() * Math.floor(999));
+	// "https://i.picsum.photos/id/815/3360/1768.jpg?blur=1"
+};

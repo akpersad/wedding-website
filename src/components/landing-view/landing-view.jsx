@@ -1,14 +1,24 @@
 import React, { Component } from "react";
 import { GiBowTieRibbon } from "react-icons/gi";
 import { IoMdHeartHalf } from "react-icons/io";
+// import { randomIdGen } from "../../global/_util";
 
 import "../../styles/main.scss";
 
 class LandingView extends Component {
 	render() {
+		const bkgdImage = "https://i.picsum.photos/id/406/3360/1768.jpg?blur=1";
+		// const bkgdImage = randomIdGen;
+		const style = {
+			backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(${bkgdImage})`
+		};
+
 		return (
 			<>
-				<div className="min-vh-100 row align-items-center text-center landing-view-object">
+				<div
+					className="min-vh-100 row align-items-center text-center landing-view-object top-view-background"
+					style={style}
+				>
 					<div className="col">
 						<div className="main-div_one main-div_icon">
 							<GiBowTieRibbon />

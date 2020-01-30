@@ -25,25 +25,21 @@ class MainPage extends Component {
 
 	render() {
 		const { location } = this.props;
-		const [id1, id2, id3] = [...this.randomGen()]; // Remove this as well
-		const url1 = `https://i.picsum.photos/id/${id1}/3360/1768.jpg?blur=1`;
-		const url2 = `https://i.picsum.photos/id/${id2}/3360/1768.jpg?blur=1`;
-		const url3 = `https://i.picsum.photos/id/${id3}/3360/1768.jpg?blur=1`;
+		// const [id1, id2, id3] = [...this.randomGen()]; // Remove this as well
+		// const url1 = `https://i.picsum.photos/id/${id1}/3360/1768.jpg?blur=1`;
+		// const url2 = `https://i.picsum.photos/id/${id2}/3360/1768.jpg?blur=1`;
+		// const url3 = `https://i.picsum.photos/id/${id3}/3360/1768.jpg?blur=1`;
 
 		return (
 			<>
 				<Header pathName={location} />
 
 				<main className="footer-padding">
-					<FirstFold
-						bkgdImage={url1}
-						topCmp={<LandingView />}
-						bottomCmp={<CountDown />}
-					/>
+					<FirstFold topCmp={<LandingView />} bottomCmp={<CountDown />} />
 
-					<FirstFold bkgdImage={url2} />
+					<FirstFold topCmp={<LandingView />} />
 
-					<FirstFold bkgdImage={url3} />
+					<FirstFold topCmp={<LandingView />} />
 				</main>
 
 				<Footer />

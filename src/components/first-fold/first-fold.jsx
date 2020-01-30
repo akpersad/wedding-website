@@ -5,16 +5,11 @@ import "../../styles/main.scss";
 
 class FirstFold extends Component {
 	render() {
-		const { bkgdImage, topCmp, bottomCmp } = this.props;
-		const style = {
-			backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(${bkgdImage})`
-		};
+		const { topCmp, bottomCmp } = this.props;
 
 		return (
 			<>
-				<section className="cd-section cd-section--bg-fixed" style={style}>
-					{topCmp}
-				</section>
+				<section className="cd-section cd-section--bg-fixed">{topCmp}</section>
 
 				<section className="cd-section">
 					<div>
@@ -49,7 +44,6 @@ FirstFold.defaultProps = {
 };
 
 FirstFold.propTypes = {
-	bkgdImage: PropTypes.string.isRequired,
 	topCmp: PropTypes.object,
 	bottomCmp: PropTypes.object
 };
