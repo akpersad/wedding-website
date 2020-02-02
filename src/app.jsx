@@ -14,7 +14,10 @@ class App extends Component {
 			<Router>
 				<Switch>
 					<Route exact path="/" component={MainPage} />
-					<Route exact path="/users" component={UsersPage} />
+					<Route exact path="/wedding" component={UsersPage} />
+					<Route exact path="/accomodations" component={UsersPage} />
+					<Route exact path="/registry" component={UsersPage} />
+					<Route exact path="/rsvp" component={UsersPage} />
 					<Route exact path="/404" component={NotFoundPage} />
 					<Redirect to="/404" />
 				</Switch>

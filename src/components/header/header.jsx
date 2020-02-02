@@ -77,19 +77,17 @@ class Header extends Component {
 
 	setCurrentLink(linkLists) {
 		const { pathName } = this.props;
-		const htmlArray = [];
-		for (let i = 0; i < Object.keys(linkLists).length; i++) {
-			const currentLinkClass =
-				pathName.pathname === Object.keys(linkLists)[i] ? "current" : "not-current";
-			htmlArray.push(
-				<li key={`${i}-Header-Item`}>
-					<Link className={currentLinkClass} to={Object.keys(linkLists)[i]}>
-						{linkLists[Object.keys(linkLists)[i]]}
+
+		return Object.keys(linkLists).map(value => {
+			const currentLinkClass = pathName.pathname === value ? "current" : "not-current";
+			return (
+				<li key={`${value}-Header-Item`}>
+					<Link className={currentLinkClass} to={value}>
+						{linkLists[value]}
 					</Link>
 				</li>
 			);
-		}
-		return htmlArray;
+		});
 	}
 
 	scrollFunc(event) {
@@ -114,7 +112,13 @@ class Header extends Component {
 	}
 
 	render() {
-		const linkLists = { "/": "Home", "/users": "Users" };
+		const linkLists = {
+			"/": "Home",
+			"/wedding": "Wedding Details",
+			"/accomodations": "Location & Accomodations",
+			"/registry": "Registry",
+			"/rsvp": "RSVP"
+		};
 
 		return (
 			<>
@@ -139,52 +143,6 @@ class Header extends Component {
 							id="main-menu"
 						>
 							{this.setCurrentLink(linkLists)}
-
-							<li>
-								<a href="/index.html">HOME</a>
-							</li>
-							<li className="drop-down">
-								<a href="/#!">
-									OUR STORIES
-									<FaCaretDown />
-								</a>
-
-								<ul className="drop-down-menu">
-									<li>
-										<a href="/FEATURED">FEATURED</a>
-									</li>
-									<li>
-										<a href="/ABOUT">ABOUT</a>
-									</li>
-									<li className="drop-down">
-										<a href="#!">
-											CATEGORIES
-											<FaCaretRight />
-										</a>
-										<ul className="drop-down-menu drop-down-inner">
-											<li>
-												<a href="/FEATURED">FEATURED</a>
-											</li>
-											<li>
-												<a href="/ABOUT">ABOUT</a>
-											</li>
-											<li>
-												<a href="/CATEGORIES">CATEGORIES</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-
-							<li>
-								<a href="/03-regular-page">THER WEDDING</a>
-							</li>
-							<li>
-								<a href="/GELLERY">GELLERY</a>
-							</li>
-							<li>
-								<a href="/02-rsvp">RSVP</a>
-							</li>
 						</ul>
 					</div>
 				</header>
