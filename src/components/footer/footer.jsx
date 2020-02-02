@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./footer.scss";
+
+import "../../styles/main.scss";
 
 import {
 	TiSocialGithub,

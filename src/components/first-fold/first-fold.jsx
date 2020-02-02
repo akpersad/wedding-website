@@ -1,33 +1,20 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./first-fold.scss";
+
+import "../../styles/main.scss";
 
 class FirstFold extends Component {
 	render() {
-		const { bkgdImage } = this.props;
-		const style = {
-			backgroundImage: `url(${bkgdImage})`
-		};
+		const { topCmp, bottomCmp } = this.props;
 
 		return (
 			<>
-				<section className="cd-section cd-section--bg-fixed" style={style}>
-					<div className="container max-width-sm padding-top--xxxl">
-						<div className="text-component text-center">
-							<h1>Alternate Fixed &amp; Scroll Backgrounds</h1>
-							<p>The effect is visible only past 1024px.</p>
-							<p>
-								<a href="https://codyhouse.co/gem/alternate-fixed-scroll-backgrounds/">
-									Article &amp; Download
-								</a>
-							</p>
-						</div>
-					</div>
-				</section>
+				<section className="cd-section cd-section--bg-fixed">{topCmp}</section>
 
 				<section className="cd-section">
-					<div className="container max-width-sm">
+					<div>
 						<div className="text-component">
+							<div>{bottomCmp}</div>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
 								incidunt suscipit similique, dolor corrupti cumque qui consectetur
@@ -51,8 +38,14 @@ class FirstFold extends Component {
 	}
 }
 
+FirstFold.defaultProps = {
+	bottomCmp: [],
+	topCmp: []
+};
+
 FirstFold.propTypes = {
-	bkgdImage: PropTypes.string.isRequired
+	topCmp: PropTypes.object,
+	bottomCmp: PropTypes.object
 };
 
 export default FirstFold;
