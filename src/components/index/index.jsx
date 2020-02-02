@@ -38,8 +38,6 @@ class MainPage extends Component {
 					<FirstFold topCmp={<LandingView />} bottomCmp={<CountDown />} />
 
 					<FirstFold topCmp={<LandingView />} />
-
-					<FirstFold topCmp={<LandingView />} />
 				</main>
 
 				<Footer />

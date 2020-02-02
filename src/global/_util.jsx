@@ -1,19 +1,3 @@
-// Inputs: HTML ELement, String
-export const getChildrenByClassName = (el, className) => {
-	const childrenByClass = [];
-	if (el == null || className == null) {
-		console.warn("Make sure el (HTML Element) and className (string) are passed!");
-	} else {
-		for (let i = 0; i < el.children.length; i++) {
-			if (this.hasClass(el.children[i], className)) {
-				childrenByClass.push(el.children[i]);
-			}
-		}
-		return childrenByClass;
-	}
-	return childrenByClass;
-};
-
 export const getAllChildrenNodes = (element = document.body) => {
 	return element.querySelectorAll("*");
 };
@@ -67,23 +51,6 @@ export const setAttributes = (el, attrs) => {
 };
 
 // Inputs: HTML ELement, String
-export const addClass = (el, className) => {
-	if (el == null || className == null) {
-		console.warn("Make sure el (HTML Element) and className (string) are passed!");
-	} else {
-		const classList = className.split(" ");
-		if (el.classList) {
-			el.classList.add(classList[0]);
-		} else if (!this.hasClass(el, classList[0])) {
-			el.className += ` ${classList[0]}`;
-		}
-		if (classList.length > 1) {
-			this.addClass(el, classList.slice(1).join(" "));
-		}
-	}
-};
-
-// Inputs: HTML ELement, String
 export const hasClass = (el, className) => {
 	if (el == null || className == null) {
 		console.warn("Make sure el (HTML Element) and className (string) are passed!");
@@ -97,6 +64,23 @@ export const hasClass = (el, className) => {
 };
 
 // Inputs: HTML ELement, String
+export const addClass = (el, className) => {
+	if (el == null || className == null) {
+		console.warn("Make sure el (HTML Element) and className (string) are passed!");
+	} else {
+		const classList = className.split(" ");
+		if (el.classList) {
+			el.classList.add(classList[0]);
+		} else if (!hasClass(el, classList[0])) {
+			el.className += ` ${classList[0]}`;
+		}
+		if (classList.length > 1) {
+			addClass(el, classList.slice(1).join(" "));
+		}
+	}
+};
+
+// Inputs: HTML ELement, String
 export const removeClass = (el, className) => {
 	if (el == null || className == null) {
 		console.warn("Make sure el (HTML Element) and className (string) are passed!");
@@ -104,12 +88,12 @@ export const removeClass = (el, className) => {
 		const classList = className.split(" ");
 		if (el.classList) {
 			el.classList.remove(classList[0]);
-		} else if (this.hasClass(el, classList[0])) {
+		} else if (hasClass(el, classList[0])) {
 			const reg = new RegExp(`(\\s|^)${classList[0]}(\\s|$)`);
 			el.className = el.className.replace(reg, " ");
 		}
 		if (classList.length > 1) {
-			this.removeClass(el, classList.slice(1).join(" "));
+			removeClass(el, classList.slice(1).join(" "));
 		}
 	}
 };
@@ -120,8 +104,8 @@ export const swapClasses = (el, classNameToAdd, classNameToRemove) => {
 			"Make sure el (HTML Element) and classNameToAdd / classNameToRemove (string) are passed!"
 		);
 	} else {
-		this.addClass(el, classNameToAdd);
-		this.removeClass(el, classNameToRemove);
+		addClass(el, classNameToAdd);
+		removeClass(el, classNameToRemove);
 	}
 };
 
@@ -130,10 +114,26 @@ export const toggleClass = (el, className, bool) => {
 	if (el == null || className == null) {
 		console.warn("Make sure el (HTML Element) and className (string) are passed!");
 	} else if (bool) {
-		this.addClass(el, className);
+		addClass(el, className);
 	} else {
-		this.removeClass(el, className);
+		removeClass(el, className);
 	}
+};
+
+// Inputs: HTML ELement, String
+export const getChildrenByClassName = (el, className) => {
+	const childrenByClass = [];
+	if (el == null || className == null) {
+		console.warn("Make sure el (HTML Element) and className (string) are passed!");
+	} else {
+		for (let i = 0; i < el.children.length; i++) {
+			if (hasClass(el.children[i], className)) {
+				childrenByClass.push(el.children[i]);
+			}
+		}
+		return childrenByClass;
+	}
+	return childrenByClass;
 };
 
 // Inputs: Integer, Integer, Function

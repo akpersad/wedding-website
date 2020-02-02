@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { GiBowTieRibbon } from "react-icons/gi";
 import { IoMdHeartHalf } from "react-icons/io";
-// import { randomIdGen } from "../../global/_util";
+import { randomIdGen } from "../../global/_util";
 
 import "../../styles/main.scss";
 
 class LandingView extends Component {
 	render() {
-		const bkgdImage = "https://i.picsum.photos/id/406/3360/1768.jpg?blur=1";
-		// const bkgdImage = randomIdGen;
+		this.state = { randomNum: randomIdGen() };
+		const { randomNum } = this.state;
+		const bkgdImage = `https://i.picsum.photos/id/${randomNum}/3360/1768.jpg?blur=1`;
 		const style = {
 			backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(${bkgdImage})`
 		};
