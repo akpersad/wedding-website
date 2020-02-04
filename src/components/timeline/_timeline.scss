@@ -36,6 +36,10 @@
             border-radius: 50%;
             z-index: 1;
         }
+
+        .icon-red {
+            color: $highlight_red;
+        }
     }
 
     .left {
