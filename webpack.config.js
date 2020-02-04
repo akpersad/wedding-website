@@ -68,6 +68,7 @@ module.exports = {
 		})
 	],
 	devServer: {
+		historyApiFallback: true,
 		contentBase: DIST_DIR,
 		hot: true,
 		port: 9000
