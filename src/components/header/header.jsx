@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import "../../styles/main.scss";
 
 import j$ from "jquery";
-import { FaBars, FaOutdent, FaCaretDown, FaCaretRight } from "react-icons/fa";
+import { FaBars, FaOutdent } from "react-icons/fa";
 import Logo from "../../images/website_logo.png";
 
 class Header extends Component {
