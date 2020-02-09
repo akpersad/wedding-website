@@ -14,9 +14,26 @@ import {
 import backgroundImage from "../../images/footerBackground.png";
 
 class Footer extends Component {
+	setCurrentLink(linkLists) {
+		return Object.keys(linkLists).map(value => {
+			return (
+				<li key={`${value}-Header-Item`}>
+					<Link to={value}>{linkLists[value]}</Link>
+				</li>
+			);
+		});
+	}
+
 	render() {
 		const style = {
 			backgroundImage: `url(${backgroundImage})`
+		};
+		const linkLists = {
+			"/": "Home",
+			"/wedding": "Wedding Details",
+			"/accomodations": "Location & Accomodations",
+			"/registry": "Registry",
+			"/rsvp": "RSVP"
 		};
 
 		return (
@@ -53,23 +70,7 @@ class Footer extends Component {
 							</li>
 						</ul>
 
-						<ul className="footer-links">
-							<li>
-								<Link to="/">HOME</Link>
-							</li>
-							<li>
-								<a href="/#">OUR STORIES</a>
-							</li>
-							<li>
-								<a href="/#">THE WEDDING</a>
-							</li>
-							<li>
-								<a href="/#">GALLERY</a>
-							</li>
-							<li>
-								<a href="/#">CONTACT</a>
-							</li>
-						</ul>
+						<ul className="footer-links">{this.setCurrentLink(linkLists)}</ul>
 					</div>
 				</footer>
 			</>
