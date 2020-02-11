@@ -1,35 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import "./header.scss";
+
+import "../../styles/main.scss";
 
 import j$ from "jquery";
-import { FaBars, FaCaretDown, FaCaretRight } from "react-icons/fa";
+import { FaBars, FaOutdent } from "react-icons/fa";
+import Logo from "../../images/website_logo.png";
 
 class Header extends Component {
 	componentDidMount() {
-		function isExists(elem) {
-			if (j$(elem).length > 0) {
-				return true;
-			}
-			return false;
-		}
-
-		function countdownTime() {
-			if (isExists("#clock")) {
-				j$("#clock").countdown("2018/01/01", function(event) {
-					j$(this).html(
-						event.strftime(
-							"" +
-								'<div class="time-sec"><span class="title">%D</span> days </div>' +
-								'<div class="time-sec"><span class="title">%H</span> hours </div>' +
-								'<div class="time-sec"><span class="title">%M</span> minutes </div>' +
-								'<div class="time-sec"><span class="title">%S</span> seconds </div>'
-						)
-					);
-				});
-			}
-		}
+		window.addEventListener("scroll", this.scrollFunc);
 
 		function dropdownMenu(winWidth) {
 			if (winWidth > 767) {
@@ -68,13 +49,19 @@ class Header extends Component {
 				$("a").fluidbox();
 			}
 
-			// COUNTDOWN TIME
-
-			countdownTime();
-
 			$("[data-nav-menu]").on("click", function() {
 				const $this = $(this);
 				const visibleHeadArea = $this.data("nav-menu");
+				const opened = $(".menu-opened");
+				const closed = $(".menu-closed");
+
+				if (closed.hasClass("d-none")) {
+					opened.addClass("d-none");
+					closed.removeClass("d-none");
+				} else {
+					closed.addClass("d-none");
+					opened.removeClass("d-none");
+				}
 
 				$(visibleHeadArea).toggleClass("visible");
 			});
@@ -90,80 +77,72 @@ class Header extends Component {
 
 	setCurrentLink(linkLists) {
 		const { pathName } = this.props;
-		const htmlArray = [];
-		for (let i = 0; i < Object.keys(linkLists).length; i++) {
-			const currentLinkClass =
-				pathName.pathname === Object.keys(linkLists)[i] ? "current" : "not-current";
-			htmlArray.push(
-				<li key={`${i}-Header-Item`}>
-					<Link className={currentLinkClass} to={Object.keys(linkLists)[i]}>
-						{linkLists[Object.keys(linkLists)[i]]}
+
+		return Object.keys(linkLists).map(value => {
+			const currentLinkClass = pathName.pathname === value ? "current" : "not-current";
+			return (
+				<li key={`${value}-Header-Item`}>
+					<Link className={currentLinkClass} to={value}>
+						{linkLists[value]}
 					</Link>
 				</li>
 			);
+		});
+	}
+
+	scrollFunc(event) {
+		const scrollPos = event.target.documentElement.scrollTop;
+		if (scrollPos > 0) {
+			document
+				.querySelector(".header-object > .container")
+				.classList.remove("set-height_large");
+			document
+				.querySelector(".header-object > .container")
+				.classList.add("set-height_medium");
+			document.querySelector(".main-menu").classList.add("header-moved");
+			document.querySelector(".logo-dimensions").classList.add("header-moved");
+		} else {
+			document
+				.querySelector(".header-object > .container")
+				.classList.remove("set-height_medium");
+			document.querySelector(".main-menu").classList.remove("header-moved");
+			document.querySelector(".logo-dimensions").classList.remove("header-moved");
+			document.querySelector(".header-object > .container").classList.add("set-height_large");
 		}
-		return htmlArray;
 	}
 
 	render() {
-		const linkLists = { "/": "Home", "/users": "Users" };
+		const linkLists = {
+			"/": "Home",
+			"/wedding": "Wedding Details",
+			"/accomodations": "Location & Accomodations",
+			"/registry": "Registry",
+			"/rsvp": "RSVP"
+		};
 
 		return (
 			<>
-				<header className="header-object d-md-flex py-3">
-					<div className="container">
+				<header className="header-object d-md-flex">
+					<div className="container d-flex justify-content-between align-items-center set-height_large">
+						<Link to="/">
+							<img className="logo-dimensions" src={Logo} alt="Logo" />
+						</Link>
+
 						<div className="menu-nav-icon" data-nav-menu="#main-menu">
-							<FaBars />
+							<div className="menu-opened d-none">
+								<FaOutdent />
+							</div>
+
+							<div className="menu-closed">
+								<FaBars />
+							</div>
 						</div>
 
-						<ul className="main-menu visible-on-click float-md-right" id="main-menu">
+						<ul
+							className="main-menu visible-on-click float-md-right mobile-ul-display"
+							id="main-menu"
+						>
 							{this.setCurrentLink(linkLists)}
-
-							<li>
-								<a href="index.html">HOME</a>
-							</li>
-							<li className="drop-down">
-								<a href="#!">
-									OUR STORIES
-									<FaCaretDown />
-								</a>
-
-								<ul className="drop-down-menu">
-									<li>
-										<a href="/FEATURED">FEATURED</a>
-									</li>
-									<li>
-										<a href="/ABOUT">ABOUT</a>
-									</li>
-									<li className="drop-down">
-										<a href="#!">
-											CATEGORIES
-											<FaCaretRight />
-										</a>
-										<ul className="drop-down-menu drop-down-inner">
-											<li>
-												<a href="/FEATURED">FEATURED</a>
-											</li>
-											<li>
-												<a href="/ABOUT">ABOUT</a>
-											</li>
-											<li>
-												<a href="/CATEGORIES">CATEGORIES</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-
-							<li>
-								<a href="03-regular-page.html">THER WEDDING</a>
-							</li>
-							<li>
-								<a href="/GELLERY">GELLERY</a>
-							</li>
-							<li>
-								<a href="02-rsvp.html">RSVP</a>
-							</li>
 						</ul>
 					</div>
 				</header>
@@ -173,7 +152,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-	pathName: PropTypes.string.isRequired
+	pathName: PropTypes.object.isRequired
 };
 
 export default Header;

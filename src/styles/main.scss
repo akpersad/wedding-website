@@ -1,7 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 
 // Globals
-@import "./partials/reset";
 @import "./partials/mixins";
 @import "./partials/colors";
 @import "./partials/breakpoints";
@@ -18,3 +17,21 @@
 @import "./partials/visibility";
 @import "./partials/accessibility";
 @import "./partials/imported";
+
+@import "../components/404/page404";
+@import "../components/count-down/count-down";
+@import "../components/first-fold/first-fold";
+@import "../components/footer/footer";
+@import "../components/header/header";
+@import "../components/index/index";
+@import "../components/landing-view/landing-view";
+@import "../components/users/users";
+@import "../components/wedding/wedding";
+@import "../components/timeline/timeline";
+@import "../components/registry/registry";
+
+#root {
+    font-family: $OpenSans;
+    position: relative;
+    min-height: 100vh;
+}

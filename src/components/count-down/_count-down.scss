@@ -1,0 +1,97 @@
+.count-down-object {
+    &.counter-area {
+        position: relative;
+        padding: 10px 0;
+        z-index: 1;
+        color: #fff;
+        background-size: cover;
+        background-image: url(https://i.picsum.photos/id/318/3360/1768.jpg?blur=7);
+        background-position: center;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            background: rgba(0, 0, 0, 0.3);
+        }
+    }
+    .heading {
+        .divider {
+            display: flex;
+            color: $white;
+            &:before,
+            &:after {
+                content: "";
+                flex: 1;
+            }
+        }
+
+        .line {
+            align-items: center;
+            margin: 1em -1em;
+
+            &:before,
+            &:after {
+                height: 1px;
+                margin: 0 1em;
+            }
+        }
+
+        .double-razor {
+            &:before,
+            &:after {
+                height: 3px;
+                box-shadow: 0 -0.5px 0 $white, 0 0.5px 0 $white;
+                border-width: 0;
+            }
+        }
+
+        .title {
+            font-family: $DancingScript;
+            font-size: $font-size-45;
+            color: $white;
+        }
+    }
+
+    .remaining-time {
+        .time-sec {
+            position: relative;
+            display: inline-block;
+            margin: 0 20px;
+            margin-bottom: 30px;
+            height: 120px;
+            width: 120px;
+            padding-top: 25px;
+            border-radius: 100px;
+            border: 1px solid #fff;
+
+            @include breakpoint(sm-only) {
+                margin: 0 10px;
+                margin-bottom: 20px;
+                height: 100px;
+                width: 100px;
+            }
+
+            .title {
+                font-size: $font-size-48;
+                line-height: 1;
+                display: block;
+                @include breakpoint(sm-only) {
+                    font-size: $font-size-40;
+                }
+            }
+
+            .time-word {
+                font-size: $font-size-15;
+                font-weight: bold;
+                @include breakpoint(sm-only) {
+                    font-size: $font-size-13;
+                }
+            }
+        }
+    }
+}

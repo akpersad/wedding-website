@@ -1,0 +1,13 @@
+.footer-padding {
+    padding-bottom: 200px;
+}
+
+.wedding-object {
+    padding-top: 100px;
+    // background-color: rgba($color: #474e5d, $alpha: 0.5);
+    background-image: linear-gradient(
+            rgba($color: #474e5d, $alpha: 0.5),
+            rgba($color: #474e5d, $alpha: 0.5)
+        ),
+        url("https://live.staticflickr.com/6026/5919795547_fa5d8e46a7_b.jpg");
+}

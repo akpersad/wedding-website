@@ -1,0 +1,67 @@
+.footer-object {
+    z-index: 1;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+
+    li {
+        list-style: none;
+        display: inline-block;
+    }
+
+    ul {
+        margin-bottom: 20px;
+
+        @include breakpoint(sm-only) {
+            padding-left: 0;
+        }
+
+        & > li {
+            & > a {
+                padding: 10px 15px;
+                text-decoration: none;
+                border: 2px solid transparent;
+                border-radius: 15px;
+
+                @include breakpoint(sm-only) {
+                    padding: 10px 7px;
+                }
+
+                &:hover {
+                    color: $orangered;
+                    border-color: $orangered;
+                }
+            }
+        }
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        opacity: 0.8;
+    }
+
+    .logo-wrapper {
+        .icon {
+            color: #e45f74;
+        }
+    }
+
+    .logo {
+        display: block;
+        height: 50px;
+
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
+}

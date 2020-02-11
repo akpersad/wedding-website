@@ -1,0 +1,21 @@
+.mrw_visitorcontainer {
+    margin-top: 0 !important;
+}
+
+#MR_GlobalTopBanner {
+    display: none !important;
+}
+
+.registry-object {
+    .loading-object {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: sticky;
+        top: 30%;
+    }
+}
+
+#registry-stuff {
+    padding-top: 100px;
+}
