@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-// import { ClipLoader } from "react-spinners";
+import { css } from "@emotion/core";
+import { PacmanLoader } from "react-spinners";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 
 class Registry extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// 	this.state = {
-	// 		loading: true
-	// 	};
-	// }
+	constructor(props) {
+		super(props);
+		this.state = {
+			loading: true
+		};
+	}
 
 	componentDidMount() {
 		const script = document.createElement("script");
@@ -23,16 +24,36 @@ class Registry extends Component {
 			"//www.myregistry.com//Visitors/GiftList/iFrames/EmbedRegistry.ashx?r=gGw-FVaZYPr8LEDbySaOcQ2&v=2";
 		document.querySelector("#registry-stuff").appendChild(script);
 
-		// script.onload = () => {
-		// 	this.state.loading = false;
-		// };
+		script.onload = this.loadingComplete.bind(this);
+	}
+
+	loadingComplete() {
+		this.setState({ loading: false });
 	}
 
 	render() {
 		const { location } = this.props;
+		const { loading } = this.state;
+		const override = css`
+			display: block;
+			margin-left: 30%;
+			margin-right: auto;
+			position: absolute;
+			top: 30%;
+		`;
+
 		return (
 			<>
 				<Header pathName={location} />
+				<div className="registry-object">
+					<PacmanLoader
+						css={override}
+						size={150}
+						color="rgb(255, 127, 80)"
+						loading={loading}
+					/>
+				</div>
+
 				<div className="footer-padding" id="registry-stuff" />
 				<Footer />
 			</>

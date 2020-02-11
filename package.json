@@ -52,6 +52,7 @@
         "webpack-dev-server": "^3.10.1"
     },
     "dependencies": {
+        "@emotion/core": "^10.0.27",
         "autoprefixer": "^9.7.4",
         "bootstrap": "^4.4.1",
         "file-loader": "^5.0.2",
