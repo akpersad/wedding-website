@@ -7,14 +7,24 @@ class RegistryModal extends Component {
 		this.state = {
 			showModal: false
 		};
+		this.closeModal = this.closeModal.bind(this);
+	}
+
+	componentDidMount() {
+		const { displayModal } = this.props;
+
+		if (!window.localStorage.sawModal && displayModal) {
+			this.setState({ showModal: true });
+		}
 	}
 
 	closeModal() {
-		debugger;
+		window.localStorage.setItem("sawModal", true);
+		this.setState({ showModal: false });
 	}
 
 	render() {
-		const { displayModal } = this.props;
+		const { showModal } = this.state;
 		return (
 			<>
 				<div
@@ -23,9 +33,7 @@ class RegistryModal extends Component {
 					role="dialog"
 					aria-labelledby="exampleModalCenterTitle"
 					aria-hidden="true"
-					className={`modal registry-modal fade show ${
-						displayModal ? "d-block" : "d-none"
-					}`}
+					className={`modal registry-modal fade show ${showModal ? "d-block" : "d-none"}`}
 				>
 					<div className="modal-dialog modal-dialog-centered" role="document">
 						<div className="modal-content">
