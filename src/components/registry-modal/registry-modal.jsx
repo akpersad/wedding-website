@@ -46,20 +46,11 @@ class RegistryModal extends Component {
 				>
 					<div className="modal-dialog modal-dialog-centered" role="document">
 						<div className="modal-content">
-							<div className="modal-header">
-								<h5 className="modal-title" id="exampleModalLongTitle">
-									Modal title
-								</h5>
-								<button
-									type="button"
-									className="close"
-									data-dismiss="modal"
-									aria-label="Close"
-								>
-									<span aria-hidden="true">&times;</span>
-								</button>
+							<div className="modal-body">
+								We&apos;re using MyRegistry to aggregate our registry links. Feel
+								free to grab something off the list or contribute to our SOMETHING
+								fund! Thanks so much!
 							</div>
-							<div className="modal-body">...</div>
 							<div className="modal-footer">
 								<button
 									type="button"
@@ -68,9 +59,6 @@ class RegistryModal extends Component {
 									onClick={this.closeModal.bind(this)}
 								>
 									Close
-								</button>
-								<button type="button" className="btn btn-primary">
-									Save changes
 								</button>
 							</div>
 						</div>
