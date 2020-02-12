@@ -5,6 +5,7 @@ import { css } from "@emotion/core";
 import { PacmanLoader } from "react-spinners";
 import Header from "../header/header";
 import Footer from "../footer/footer";
+import Modal from "../registry-modal/registry-modal";
 
 class Registry extends Component {
 	constructor(props) {
@@ -34,6 +35,7 @@ class Registry extends Component {
 	render() {
 		const { location } = this.props;
 		const { loading } = this.state;
+		const displayModal = true;
 		const override = css`
 			display: block;
 			margin-left: 30%;
@@ -53,7 +55,7 @@ class Registry extends Component {
 						loading={loading}
 					/>
 				</div>
-
+				<Modal displayModal={displayModal} />
 				<div className="footer-padding" id="registry-stuff" />
 				<Footer />
 			</>
