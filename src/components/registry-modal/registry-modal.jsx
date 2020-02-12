@@ -7,7 +7,6 @@ class RegistryModal extends Component {
 		this.state = {
 			showModal: false
 		};
-		this.closeModal = this.closeModal.bind(this);
 	}
 
 	componentDidMount() {
@@ -15,11 +14,21 @@ class RegistryModal extends Component {
 
 		if (!window.localStorage.sawModal && displayModal) {
 			this.setState({ showModal: true });
+		} else if (window.localStorage.sawModal && this.checkModalExp()) {
+			window.localStorage.setItem("modalDate", new Date());
 		}
+	}
+
+	checkModalExp() {
+		const twoWeeksAgo = new Date(Date.now() - 12096e5);
+		const modalDateTime = new Date(window.localStorage.modalDate);
+
+		return twoWeeksAgo > modalDateTime;
 	}
 
 	closeModal() {
 		window.localStorage.setItem("sawModal", true);
+		window.localStorage.setItem("modalDate", new Date());
 		this.setState({ showModal: false });
 	}
 
@@ -56,7 +65,7 @@ class RegistryModal extends Component {
 									type="button"
 									className="btn btn-secondary"
 									data-dismiss="modal"
-									onClick={this.closeModal}
+									onClick={this.closeModal.bind(this)}
 								>
 									Close
 								</button>
