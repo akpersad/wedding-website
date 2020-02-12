@@ -2,15 +2,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 
-import "../../styles/main.scss";
-
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import FirstFold from "../first-fold/first-fold";
 import CountDown from "../count-down/count-down";
 import LandingView from "../landing-view/landing-view";
-
-// Functional Component
 
 class MainPage extends Component {
 	// Removed code in prod
