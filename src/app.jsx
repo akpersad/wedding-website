@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import "./styles/main.scss";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
+import Favicon from "react-favicon";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import FaviconImage from "./images/favicon.png";
 
 import MainPage from "./components/index/index";
 import UsersPage from "./components/users/users";
@@ -14,6 +16,7 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
+				<Favicon url={FaviconImage} />
 				<Switch>
 					<Route exact path="/" component={MainPage} />
 					<Route exact path="/wedding" component={Wedding} />

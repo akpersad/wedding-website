@@ -3,8 +3,6 @@ import { GiBowTieRibbon } from "react-icons/gi";
 import { IoMdHeartHalf } from "react-icons/io";
 import { randomIdGen } from "../../global/_util";
 
-import "../../styles/main.scss";
-
 class LandingView extends Component {
 	render() {
 		this.state = { randomNum: randomIdGen() };

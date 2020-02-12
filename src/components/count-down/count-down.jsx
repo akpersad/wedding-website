@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { GiDiamondRing } from "react-icons/gi";
 
-import "../../styles/main.scss";
-
 class CountDown extends Component {
 	constructor(props) {
 		// Required step: always call the parent class' constructor

@@ -3,8 +3,6 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import Header from "../header/header";
 
-import "../../styles/main.scss";
-
 class Page404 extends Component {
 	render() {
 		const { location } = this.props;
