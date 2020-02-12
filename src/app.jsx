@@ -12,6 +12,8 @@ import Wedding from "./components/wedding/wedding";
 import Registry from "./components/registry/registry";
 import NotFoundPage from "./components/404/page404";
 
+import Reduxer from "./components/test-redux/test-redux";
+
 class App extends Component {
 	render() {
 		return (
@@ -23,6 +25,7 @@ class App extends Component {
 					<Route exact path="/accomodations" component={UsersPage} />
 					<Route exact path="/registry" component={Registry} />
 					<Route exact path="/rsvp" component={UsersPage} />
+					<Route exact path="/test" component={Reduxer} />
 					<Route exact path="/404" component={NotFoundPage} />
 					<Redirect to="/404" />
 				</Switch>
