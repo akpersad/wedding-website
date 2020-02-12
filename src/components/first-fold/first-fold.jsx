@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import "../../styles/main.scss";
-
 class FirstFold extends Component {
 	render() {
 		const { topCmp, bottomCmp } = this.props;

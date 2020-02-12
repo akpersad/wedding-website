@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import "../../styles/main.scss";
-
 import j$ from "jquery";
 import { FaBars, FaOutdent } from "react-icons/fa";
 import Logo from "../../images/website_logo.png";
