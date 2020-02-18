@@ -9,7 +9,6 @@ class Counter extends Component {
 	increment() {
 		const { dispatch } = this.props;
 		dispatch(increment());
-		this.logger();
 	}
 
 	decrement() {
@@ -20,10 +19,6 @@ class Counter extends Component {
 	reset() {
 		const { dispatch } = this.props;
 		dispatch(reset());
-	}
-
-	logger() {
-		debugger;
 	}
 
 	render() {
